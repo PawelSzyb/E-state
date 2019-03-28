@@ -1,0 +1,14 @@
+.slide-img {
+  width: 100%;
+  min-height: 600px;
+  background-image: url("https://mdbootstrap.com/img/Photos/Slides/img%20(68).jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.slide-img.slide-two {
+  background-image: url("https://mdbootstrap.com/img/Photos/Slides/img%20(17).jpg");
+}
+.slide-img.slide-three {
+  background-image: url("https://mdbootstrap.com/img/Photos/Slides/img%20%28143%29.jpg");
+}
