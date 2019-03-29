@@ -1,2 +1,3 @@
 export const FETCH_LATEST = "FETCH_LATEST";
+export const GET_SINGLE_LISTING = "GET_SINGLE_LISTING";
 export const GET_ERRORS = "GET_ERRORS";

@@ -25,7 +25,6 @@ class Latest extends Component {
               <Card
                 key={listing._id}
                 owner={listing.owner}
-                added={listing.added}
                 title={listing.title}
                 location={listing.location}
                 bedrooms={listing.bedrooms}
@@ -33,6 +32,8 @@ class Latest extends Component {
                 garages={listing.garages}
                 sq={listing.sq}
                 added={listing.createdAt.substring(0, 10)}
+                btnName="More Info"
+                id={listing._id}
               />
             );
           })}

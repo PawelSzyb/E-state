@@ -6,6 +6,8 @@
   z-index: 10;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
+  padding: 5%;
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 .input-group {

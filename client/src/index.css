@@ -1,7 +1,6 @@
 .active {
   background-color: rgba(255, 255, 255, 0.1) !important;
 }
-
-.App {
-  min-height: 100vh;
+.long-arrow-alt-left {
+  font-size: 1.3rem;
 }

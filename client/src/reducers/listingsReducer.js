@@ -1,4 +1,4 @@
-import { FETCH_LATEST } from "../actions/types";
+import { FETCH_LATEST, GET_SINGLE_LISTING } from "../actions/types";
 
 const initialState = {
   latestListings: []
@@ -10,6 +10,11 @@ export default function(state = initialState, action) {
       return {
         ...state,
         latestListings: action.payload
+      };
+    case GET_SINGLE_LISTING:
+      return {
+        ...state,
+        singleListing: action.payload
       };
     default:
       return state;

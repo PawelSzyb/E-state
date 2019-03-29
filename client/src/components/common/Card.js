@@ -7,6 +7,9 @@ import {
   MDBCardTitle,
   MDBIcon
 } from "mdbreact";
+import { Link } from "react-router-dom";
+
+import "./Card.css";
 
 const Card = props => {
   return (
@@ -33,7 +36,7 @@ const Card = props => {
             Bedrooms: {props.bedrooms}
           </li>
           <li className="card__info-item">
-            <MDBIcon icon="car-alt" className="mr-2" /> Garage: {props.garages}
+            <MDBIcon icon="car-alt" className="mr-2" /> Garages: {props.garages}
           </li>
           <li className="card__info-item">
             <MDBIcon icon="bath" className="mr-2" />
@@ -47,10 +50,11 @@ const Card = props => {
             {props.added}
           </li>
         </p>
-
-        <MDBBtn className="d-block" href="#">
-          More Info
-        </MDBBtn>
+        <Link to={`/listings/${props.id}`}>
+          <MDBBtn className="d-block mx-auto w-100" color="indigo">
+            {props.btnName}
+          </MDBBtn>
+        </Link>
       </MDBCardBody>
     </MDBCard>
   );

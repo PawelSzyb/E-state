@@ -29,7 +29,6 @@ const port = process.env.PORT || 5000;
 sequelize
   .sync()
   .then(result => {
-    console.log("created");
     app.listen(5000, () => `Server started at ${port}`);
   })
   .catch(err => console.log(err));

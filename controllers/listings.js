@@ -3,8 +3,6 @@ const sequelize = require("sequelize");
 
 exports.postListing = (req, res, next) => {
   const { title, location, bedrooms, garages, bathrooms, sq } = req.body;
-  // console.log(title);
-  // res.json({ msg: "success", title: title });
   Listing.create({
     title,
     location,
@@ -25,4 +23,13 @@ exports.getLatestListings = (req, res, next) => {
   })
     .then(listings => res.status(200).json(listings))
     .catch(error => console.log(error));
+};
+
+exports.getSingleListing = (req, res, next) => {
+  const listingId = req.params.id;
+  Listing.findByPk(listingId)
+    .then(listing => {
+      res.status(200).json(listing);
+    })
+    .then(error => console.log(error));
 };

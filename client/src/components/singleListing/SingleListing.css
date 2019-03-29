@@ -1,0 +1,16 @@
+.btn-back {
+  display: flex;
+  align-items: center;
+}
+.listing__container {
+  margin-top: 90px;
+}
+.img-fluid {
+  width: 500px;
+}
+
+@media (min-width: 768px) {
+  .listing__container {
+    width: 70%;
+  }
+}
