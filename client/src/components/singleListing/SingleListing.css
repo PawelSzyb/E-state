@@ -1,12 +1,38 @@
 .btn-back {
   display: flex;
   align-items: center;
+  margin-bottom: 30px;
 }
 .listing__container {
-  margin-top: 90px;
+  margin-top: 30px;
 }
 .img-fluid {
   width: 500px;
+}
+.listing__banner {
+  background-image: url("https://mdbootstrap.com/img/Others/documentation/2.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 250px;
+  color: #fff;
+}
+.listing__header {
+  font-size: 2.3rem;
+}
+.listing__header,
+.listing__location {
+  transform: translateY(40px);
+}
+.listing__banner-overlay {
+  display: flex;
+  justify-content: center;
+  flex-flow: column wrap;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(43, 187, 173, 0.8);
 }
 
 @media (min-width: 768px) {

@@ -20,6 +20,7 @@ class AddListing extends Component {
   state = {
     title: "",
     location: "",
+    price: 0,
     bedrooms: 0,
     garages: 0,
     bathrooms: 0,
@@ -30,6 +31,7 @@ class AddListing extends Component {
     const listingData = JSON.stringify({
       title: this.state.title,
       location: this.state.location,
+      price: this.state.price,
       bedrooms: this.state.bedrooms,
       garages: this.state.garages,
       bathrooms: this.state.bathrooms,
@@ -39,6 +41,7 @@ class AddListing extends Component {
     this.setState({
       title: "",
       location: "",
+      price: 0,
       bedrooms: 0,
       garages: 0,
       bathrooms: 0,
@@ -73,6 +76,13 @@ class AddListing extends Component {
                   type="text"
                 />
                 <Input
+                  name="price"
+                  value={this.state.price}
+                  onChange={this.onChangeHandle}
+                  label="Price"
+                  type="number"
+                />
+                <Input
                   name="garages"
                   value={this.state.garages}
                   onChange={this.onChangeHandle}
@@ -80,7 +90,7 @@ class AddListing extends Component {
                   type="number"
                 />
                 <Input
-                  name="bedrooms"
+                  name="Bedrooms"
                   value={this.state.bedrooms}
                   onChange={this.onChangeHandle}
                   label="bedrooms"
@@ -100,6 +110,7 @@ class AddListing extends Component {
                   label="Measurement"
                   type="number"
                 />
+
                 <div className="text-center mt-4">
                   <MDBBtn
                     type="submit"

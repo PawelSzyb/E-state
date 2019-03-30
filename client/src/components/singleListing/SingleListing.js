@@ -15,22 +15,37 @@ class SingleListing extends Component {
     this.props.getSingleListing(id);
   }
   render() {
-    return (
-      <MDBContainer className="listing__container">
-        <Link to="/">
-          <MDBBtn color="indigo" className="btn-back">
-            <MDBIcon className="mr-2" icon="long-arrow-alt-left" />
-            Home
-          </MDBBtn>
-          <ListingInfo />
-        </Link>
-      </MDBContainer>
-    );
+    const { listing } = this.props;
+    let content;
+    if (!listing) {
+      content = <h2>Loading...</h2>;
+    } else {
+      content = (
+        <>
+          <div className="listing__banner">
+            <div className="listing__banner-overlay">
+              <h3 className="listing__header">{listing.title}</h3>
+              <p className="listing__location">{listing.location}</p>
+            </div>
+          </div>
+          <MDBContainer className="listing__container">
+            <Link to="/">
+              <MDBBtn color="indigo" className="btn-back">
+                <MDBIcon className="mr-2" icon="long-arrow-alt-left" />
+                Home
+              </MDBBtn>
+              <ListingInfo />
+            </Link>
+          </MDBContainer>
+        </>
+      );
+    }
+    return content;
   }
 }
 
 const mapStateToProps = state => ({
-  listing: state.listings
+  listing: state.listings.singleListing
 });
 
 export default connect(

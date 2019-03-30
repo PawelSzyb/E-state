@@ -2,10 +2,11 @@ const Listing = require("../models/Listing");
 const sequelize = require("sequelize");
 
 exports.postListing = (req, res, next) => {
-  const { title, location, bedrooms, garages, bathrooms, sq } = req.body;
+  const { title, location, price, bedrooms, garages, bathrooms, sq } = req.body;
   Listing.create({
     title,
     location,
+    price,
     bedrooms,
     garages,
     bathrooms,

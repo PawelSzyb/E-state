@@ -32,6 +32,7 @@ class Latest extends Component {
                 garages={listing.garages}
                 sq={listing.sq}
                 added={listing.createdAt.substring(0, 10)}
+                price={listing.price.toFixed(3)}
                 btnName="More Info"
                 id={listing._id}
               />

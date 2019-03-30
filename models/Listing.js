@@ -17,6 +17,10 @@ const Listing = sequelize.define("listing", {
     type: Sequelize.STRING,
     allowNull: false
   },
+  price: {
+    type: Sequelize.DOUBLE,
+    allowNull: false
+  },
   garages: {
     type: Sequelize.STRING
   },

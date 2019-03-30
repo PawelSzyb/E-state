@@ -14,6 +14,7 @@ import "./Card.css";
 const Card = props => {
   return (
     <MDBCard className="mb-5" style={{ width: "18rem" }}>
+      <div className="card__price">${props.price}</div>
       <MDBCardImage
         className="img-fluid"
         src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg"
@@ -50,6 +51,7 @@ const Card = props => {
             {props.added}
           </li>
         </p>
+
         <Link to={`/listings/${props.id}`}>
           <MDBBtn className="d-block mx-auto w-100" color="indigo">
             {props.btnName}

@@ -2,3 +2,19 @@
   display: flex;
   justify-content: space-between;
 }
+
+.card {
+  position: relative;
+}
+
+.card__price {
+  padding: 0.5rem 1rem;
+  background-color: #3f51b5;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+  position: absolute;
+  z-index: 100;
+  top: 15px;
+  left: 15px;
+}
