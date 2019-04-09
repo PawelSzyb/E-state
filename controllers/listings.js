@@ -1,8 +1,17 @@
 const Listing = require("../models/Listing");
-const sequelize = require("sequelize");
 
 exports.postListing = (req, res, next) => {
-  const { title, location, price, bedrooms, garages, bathrooms, sq } = req.body;
+  const {
+    title,
+    location,
+    price,
+    bedrooms,
+    garages,
+    bathrooms,
+    sq,
+    realtor,
+    lotSize
+  } = req.body;
   Listing.create({
     title,
     location,
@@ -11,7 +20,8 @@ exports.postListing = (req, res, next) => {
     garages,
     bathrooms,
     sq,
-    owner: "Kyle Brown"
+    realtor,
+    lotSize
   })
     .then(result => res.status(200).json(result))
     .catch(error => console.log(error));

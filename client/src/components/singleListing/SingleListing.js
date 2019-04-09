@@ -34,8 +34,8 @@ class SingleListing extends Component {
                 <MDBIcon className="mr-2" icon="long-arrow-alt-left" />
                 Home
               </MDBBtn>
-              <ListingInfo />
             </Link>
+            <ListingInfo listing={listing} />
           </MDBContainer>
         </>
       );

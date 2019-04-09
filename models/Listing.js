@@ -18,7 +18,7 @@ const Listing = sequelize.define("listing", {
     allowNull: false
   },
   price: {
-    type: Sequelize.DOUBLE,
+    type: Sequelize.STRING,
     allowNull: false
   },
   garages: {
@@ -33,7 +33,11 @@ const Listing = sequelize.define("listing", {
   sq: {
     type: Sequelize.DOUBLE
   },
-  owner: {
+  lotSize: {
+    type: Sequelize.DOUBLE,
+    allowNull: false
+  },
+  realtor: {
     type: Sequelize.STRING,
     allowNull: false
   }

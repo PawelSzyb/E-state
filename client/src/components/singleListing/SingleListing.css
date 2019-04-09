@@ -35,8 +35,30 @@
   background-color: rgba(43, 187, 173, 0.8);
 }
 
+.info__container {
+  display: flex;
+  flex-flow: column wrap;
+}
+.info__container .list-group {
+  width: 100%;
+  margin-right: 10px;
+  margin-bottom: 40px;
+}
+
+.info__container .list-group .list-group-item {
+  border-left: 0;
+  border-right: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
 @media (min-width: 768px) {
   .listing__container {
-    width: 70%;
+    width: 90%;
+  }
+}
+@media (min-width: 992px) {
+  .info__container {
+    flex-flow: row nowrap
   }
 }

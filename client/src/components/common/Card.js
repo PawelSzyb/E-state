@@ -44,8 +44,8 @@ const Card = props => {
             Bathrooms: {props.bathrooms}
           </li>
         </ul>
-        <p className="card__info-owner card__info">
-          <li className="card__info-item">{props.owner}</li>
+        <p className="card__info-realtor card__info">
+          <li className="card__info-item">{props.realtor}</li>
           <li className="card__info-item">
             Created: <br />
             {props.added}

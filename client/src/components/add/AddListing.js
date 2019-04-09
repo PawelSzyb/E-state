@@ -24,7 +24,9 @@ class AddListing extends Component {
     bedrooms: 0,
     garages: 0,
     bathrooms: 0,
-    sq: 0
+    sq: 0,
+    realtor: "",
+    lotSize: 0
   };
 
   onClickHandle = () => {
@@ -35,7 +37,9 @@ class AddListing extends Component {
       bedrooms: this.state.bedrooms,
       garages: this.state.garages,
       bathrooms: this.state.bathrooms,
-      sq: this.state.sq
+      sq: this.state.sq,
+      realtor: this.state.realtor,
+      lotSize: this.state.lotSize
     });
     this.props.addListing(listingData, this.props.history);
     this.setState({
@@ -45,7 +49,9 @@ class AddListing extends Component {
       bedrooms: 0,
       garages: 0,
       bathrooms: 0,
-      sq: 0
+      sq: 0,
+      realtor: "",
+      lotSize: 0
     });
   };
 
@@ -76,11 +82,18 @@ class AddListing extends Component {
                   type="text"
                 />
                 <Input
+                  name="realtor"
+                  value={this.state.realtor}
+                  onChange={this.onChangeHandle}
+                  label="Realtor"
+                  type="text"
+                />
+                <Input
                   name="price"
                   value={this.state.price}
                   onChange={this.onChangeHandle}
                   label="Price"
-                  type="number"
+                  type="string"
                 />
                 <Input
                   name="garages"
@@ -90,10 +103,10 @@ class AddListing extends Component {
                   type="number"
                 />
                 <Input
-                  name="Bedrooms"
+                  name="bedrooms"
                   value={this.state.bedrooms}
                   onChange={this.onChangeHandle}
-                  label="bedrooms"
+                  label="Bedrooms"
                   type="number"
                 />
                 <Input
@@ -108,6 +121,13 @@ class AddListing extends Component {
                   value={this.state.sq}
                   onChange={this.onChangeHandle}
                   label="Measurement"
+                  type="number"
+                />
+                <Input
+                  name="lotSize"
+                  value={this.state.lotSize}
+                  onChange={this.onChangeHandle}
+                  label="Lot Size"
                   type="number"
                 />
 

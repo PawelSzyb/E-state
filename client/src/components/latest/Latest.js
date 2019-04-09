@@ -24,7 +24,7 @@ class Latest extends Component {
             return (
               <Card
                 key={listing._id}
-                owner={listing.owner}
+                realtor={listing.realtor}
                 title={listing.title}
                 location={listing.location}
                 bedrooms={listing.bedrooms}
@@ -32,7 +32,7 @@ class Latest extends Component {
                 garages={listing.garages}
                 sq={listing.sq}
                 added={listing.createdAt.substring(0, 10)}
-                price={listing.price.toFixed(3)}
+                price={listing.price}
                 btnName="More Info"
                 id={listing._id}
               />
