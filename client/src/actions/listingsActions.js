@@ -1,6 +1,12 @@
 import { FETCH_LATEST, GET_SINGLE_LISTING } from "./types";
 import { GET_ERRORS } from "./types";
 
+// Create error with objects
+function ObjectError(data) {
+  this.data = data;
+}
+ObjectError.prototype = new Error();
+
 // Fetch latest listings
 export const fetchLatestListing = () => {
   return dispatch => {
@@ -13,15 +19,13 @@ export const fetchLatestListing = () => {
         });
       })
       .catch(err => {
-        dispatch({
-          type: GET_ERRORS,
-          payload: err
-        });
+        console.log(err);
       });
   };
 };
 
 // Add new listing
+
 export const addListing = (listingData, history) => {
   return dispatch => {
     fetch("http://localhost:5000/listings/add", {
@@ -29,10 +33,22 @@ export const addListing = (listingData, history) => {
       headers: { "Content-Type": "application/json" },
       body: listingData
     })
-      .then(listing => {
-        history.push("/");
+      .then(res => {
+        if (!(res.status === 200) && !(res.status === 201)) {
+          return res.json();
+        } else {
+          return history.push("/");
+        }
       })
-      .catch(err => console.log(err));
+      .then(data => {
+        throw new ObjectError(data);
+      })
+      .catch(error => {
+        return dispatch({
+          type: GET_ERRORS,
+          payload: error.data
+        });
+      });
   };
 };
 

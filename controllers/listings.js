@@ -1,6 +1,15 @@
 const Listing = require("../models/Listing");
+const { validationResult } = require("express-validator/check");
 
 exports.postListing = (req, res, next) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    const errorArr = errors.mapped();
+    const error = new Error("Validation failed. Data incorrect");
+    error.statusCode = 422;
+    error.data = errorArr;
+    throw error;
+  }
   const {
     title,
     location,
@@ -24,7 +33,12 @@ exports.postListing = (req, res, next) => {
     lotSize
   })
     .then(result => res.status(200).json(result))
-    .catch(error => console.log(error));
+    .catch(error => {
+      if (!error.statusCode) {
+        error.statusCode = 500;
+      }
+      next(error);
+    });
 };
 
 exports.getLatestListings = (req, res, next) => {

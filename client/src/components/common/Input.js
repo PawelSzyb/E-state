@@ -17,7 +17,6 @@ class Form extends Component {
           type={this.props.type}
           className="form-control"
         />
-        <br />
       </form>
     );
   }

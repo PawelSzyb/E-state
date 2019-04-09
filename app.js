@@ -21,8 +21,14 @@ app.use((req, res, next) => {
   );
   next();
 });
-
 app.use("/listings", listingsRoutes);
+
+app.use((error, req, res, next) => {
+  const statusCode = error.statusCode || 500;
+  const data = error.data || {};
+
+  res.status(statusCode).json(data);
+});
 
 const port = process.env.PORT || 5000;
 

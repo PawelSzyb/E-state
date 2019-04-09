@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
+import _ from "lodash";
 import PropTypes from "prop-types";
 import {
   MDBContainer,
@@ -26,7 +27,8 @@ class AddListing extends Component {
     bathrooms: 0,
     sq: 0,
     realtor: "",
-    lotSize: 0
+    lotSize: 0,
+    errors: {}
   };
 
   onClickHandle = () => {
@@ -42,18 +44,28 @@ class AddListing extends Component {
       lotSize: this.state.lotSize
     });
     this.props.addListing(listingData, this.props.history);
-    this.setState({
-      title: "",
-      location: "",
-      price: 0,
-      bedrooms: 0,
-      garages: 0,
-      bathrooms: 0,
-      sq: 0,
-      realtor: "",
-      lotSize: 0
-    });
+    if (!this.state.errors) {
+      this.setState({
+        title: "",
+        location: "",
+        price: 0,
+        bedrooms: 0,
+        garages: 0,
+        bathrooms: 0,
+        sq: 0,
+        realtor: "",
+        lotSize: 0
+      });
+    }
   };
+
+  componentDidUpdate(prevProps) {
+    if (!_.isEqual(prevProps.errors, this.props.errors)) {
+      this.setState({
+        errors: this.props.errors.errors
+      });
+    }
+  }
 
   onChangeHandle = e => {
     this.setState({ [e.target.name]: e.target.value });
@@ -74,6 +86,11 @@ class AddListing extends Component {
                   label="Title"
                   type="text"
                 />
+                {this.state.errors.title ? (
+                  <div className="invalid-feedback">
+                    Please provide a title.
+                  </div>
+                ) : null}
                 <Input
                   name="location"
                   value={this.state.location}
@@ -81,6 +98,11 @@ class AddListing extends Component {
                   label="Location"
                   type="text"
                 />
+                {this.state.errors.location ? (
+                  <div className="invalid-feedback">
+                    Please provide a location.
+                  </div>
+                ) : null}
                 <Input
                   name="realtor"
                   value={this.state.realtor}
@@ -88,6 +110,11 @@ class AddListing extends Component {
                   label="Realtor"
                   type="text"
                 />
+                {this.state.errors.realtor ? (
+                  <div className="invalid-feedback">
+                    Please provide a realtor.
+                  </div>
+                ) : null}
                 <Input
                   name="price"
                   value={this.state.price}
@@ -95,6 +122,11 @@ class AddListing extends Component {
                   label="Price"
                   type="string"
                 />
+                {this.state.errors.price ? (
+                  <div className="invalid-feedback">
+                    Please provide a valid price.
+                  </div>
+                ) : null}
                 <Input
                   name="garages"
                   value={this.state.garages}
@@ -102,6 +134,11 @@ class AddListing extends Component {
                   label="Garages"
                   type="number"
                 />
+                {this.state.errors.garages ? (
+                  <div className="invalid-feedback">
+                    Please provide a valid number.
+                  </div>
+                ) : null}
                 <Input
                   name="bedrooms"
                   value={this.state.bedrooms}
@@ -109,6 +146,11 @@ class AddListing extends Component {
                   label="Bedrooms"
                   type="number"
                 />
+                {this.state.errors.bedrooms ? (
+                  <div className="invalid-feedback">
+                    Please provide a valid number.
+                  </div>
+                ) : null}
                 <Input
                   name="bathrooms"
                   value={this.state.bathrooms}
@@ -116,6 +158,11 @@ class AddListing extends Component {
                   label="Bathrooms"
                   type="number"
                 />
+                {this.state.errors.bathrooms ? (
+                  <div className="invalid-feedback">
+                    Please provide a valid number.
+                  </div>
+                ) : null}
                 <Input
                   name="sq"
                   value={this.state.sq}
@@ -123,6 +170,11 @@ class AddListing extends Component {
                   label="Measurement"
                   type="number"
                 />
+                {this.state.errors.sq ? (
+                  <div className="invalid-feedback">
+                    Please provide a measurement.
+                  </div>
+                ) : null}
                 <Input
                   name="lotSize"
                   value={this.state.lotSize}
@@ -130,7 +182,11 @@ class AddListing extends Component {
                   label="Lot Size"
                   type="number"
                 />
-
+                {this.state.errors.lotSize ? (
+                  <div className="invalid-feedback">
+                    Please provide a lot size.
+                  </div>
+                ) : null}
                 <div className="text-center mt-4">
                   <MDBBtn
                     type="submit"
@@ -150,7 +206,9 @@ class AddListing extends Component {
   }
 }
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({
+  errors: state.errors
+});
 
 AddListing.protoTypes = {
   addListing: PropTypes.func.isRequired
