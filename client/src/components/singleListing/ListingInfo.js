@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { MDBContainer, MDBRow, MDBCol } from "mdbreact";
-import Lightbox from "react-image-lightbox/dist/main";
+import Lightbox from "react-image-lightbox";
 import "./Lightbox.css";
 
 import InfoList from "./InfoList";

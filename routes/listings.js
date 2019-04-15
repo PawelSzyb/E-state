@@ -35,7 +35,8 @@ router.post(
   check("price")
     .not()
     .isEmpty()
-    .isFloat({ min: 1 })
+    .trim()
+    .matches(/^([0-9]+)(\.[0-9]+)+?$/)
     .withMessage("Price is invalid"),
   check("garages")
     .isInt()

@@ -9,6 +9,7 @@ import Navbar from "./components/layout/Navbar";
 import Index from "./components/index/Index";
 import Add from "./components/add/AddListing";
 import SingleListing from "./components/singleListing/SingleListing";
+import FeaturedListings from "./components/featuredListing/featuredListings";
 
 class App extends Component {
   render() {
@@ -20,6 +21,11 @@ class App extends Component {
             <Route exact path="/" component={Index} />
             <Route exact path="/add" component={Add} />
             <Route exact path="/listings/:id" component={SingleListing} />
+            <Route
+              exact
+              path="/featuredListings"
+              component={FeaturedListings}
+            />
           </div>
         </Router>
       </Provider>
